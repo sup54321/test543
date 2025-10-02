@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission - Inventure Group</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif; }
+body { background:#111; color:#fff; }
+
+/* Header */
+header {
+  position: fixed;
+  top:0; left:0; right:0;
+  height:120px;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  background: url('images/12-01.png') no-repeat center/cover; /* updated header image */
+  transition: top 0.5s ease, opacity 0.5s ease;
+  opacity:1;
+}
+
+/* Burger */
+.burger { 
+  display:flex; 
+  flex-direction:column; 
+  cursor:pointer; 
+  gap:5px; 
+  position:relative; 
+  z-index:2; 
+  margin-right:30px;
+}
+.burger div { 
+  width:25px; 
+  height:3px; 
+  background:white; 
+  border-radius:2px; 
+  transition:0.3s; 
+}
+
+/* Nav */
+nav ul {
+  list-style:none; 
+  position:absolute; 
+  top:120px; 
+  right:30px; 
+  background: rgba(52, 73, 94, 0.95); 
+  flex-direction:column; 
+  width:260px; 
+  display:none;
+  padding:15px; 
+  border-radius:5px;
+  max-height: 70vh; 
+  overflow-y:auto;
+}
+nav ul.show { display:flex; }
+nav ul li { margin:5px 0; }
+nav ul li a { 
+  color:white; 
+  text-decoration:none; 
+  padding:10px; 
+  display:block; 
+  border-radius:4px; 
+}
+nav ul li a:hover { 
+  background: rgba(74, 91, 114, 0.9); 
+}
+
+/* Full-screen first section background */
+#home {
+  height: 100vh;               
+  width: 100vw;                
+  min-height: 100vh;           
+  background-color: #555;       
+  background-image: url('images/bacground uni-21.png');  /* first section background */
+  background-size: cover;      
+  background-position: center; 
+  background-repeat: no-repeat;
+  display: block;
+  z-index: 0;
+  position: relative;
+}
+
+/* Content overlay on first section, left-aligned */
+#home .content-overlay {
+  position: absolute;
+  top: 50%;
+  left: 10%;                  
+  transform: translateY(-50%); 
+  color: white;
+  text-align: left;
+  max-width: 500px;           
+  padding: 0 20px;
+}
+#home .content-overlay h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+#home .content-overlay p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  background: transparent; 
+  text-align:center;
+  padding:20px;
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header id="header">
+  <div class="burger" id="burger">
+    <div></div><div></div><div></div>
+  </div>
+
+  <nav>
+    <ul id="nav-links">
+      <li><a href="overview.html">Overview & History</a></li>
+      <li><a href="footprint.html">Global Footprint</a></li>
+      <li><a href="mission.html">Mission</a></li>
+      <li><a href="ourgroup.html">Our Group</a></li>
+      <li><a href="investment.html">Investment Verticals</a></li>
+      <li><a href="partnerships.html">Strategic Partnerships</a></li>
+      <li><a href="interports.html">Inventure Interports</a></li>
+      <li><a href="hospitality.html">Hospitality & F&B</a></li>
+      <li><a href="cities.html">Inventure Group’s Cities</a></li>
+      <li><a href="flagship.html">Flagship Projects</a></li>
+      <li><a href="nwg.html">NWG Gargoub</a></li>
+      <li><a href="countries.html">Countries</a></li>
+      <li><a href="leadership.html">Leadership</a></li>
+      <li><a href="press.html">Press</a></li>
+      <li><a href="awards.html">Inventure International Awards</a></li>
+      <li><a href="healthcare.html">Healthcare & Insurance</a></li>
+      <li><a href="healthcare-companies.html">Our Group Healthcare Companies</a></li>
+      <li><a href="gargoub.html">Gargoub SEZ & GBFC</a></li>
+      <li><a href="education.html">Education & Academies</a></li>
+      <li><a href="media.html">Media & Digital Innovation</a></li>
+      <li><a href="fashion.html">Fashion & Retail</a></li>
+      <li><a href="ic.html">Inventure Capital (IC)</a></li>
+      <li><a href="ic-awards.html">Inventure Capital – International Awards</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Full-screen background section -->
+<section id="home">
+  <div class="content-overlay">
+    <h1>Our Mission</h1>
+    <p>
+      Our Purpose: To Innovate a Sustainable Future for the Middle East, Africa and Mediterranean Countries.
+Our Vision: Building Opportunities and Capabilities Today, For a Better Tomorrow.
+Our Values guide us towards Our Mission:
+Define the Culture, Explore the Potential Growth Opportunities, Resources and Geographical Location, to create Value for Countries, by developing their Local Talent & Human Capital, and Cities into Sustainable, Green, Smart, AI and Technologically Advanced Cities, and Communities supported by Industrial Platforms, Logistics Hubs, Local Manpower & Resources, as Import & Export Trading Hubs, to Secure and Insure their future as Regional and Global Economies.
+    </p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer></footer>
+
+<script>
+const burger = document.getElementById("burger");
+const navLinks = document.getElementById("nav-links");
+const header = document.getElementById("header");
+let lastScroll = 0;
+
+burger.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+  burger.classList.toggle("open");
+});
+
+// Burger animation
+const style = document.createElement("style");
+style.textContent = `
+.burger.open div:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.burger.open div:nth-child(2) { opacity: 0; }
+.burger.open div:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+`;
+document.head.appendChild(style);
+
+// Hide/show header on scroll
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+  if (currentScroll > lastScroll && currentScroll > 50) {
+    header.style.top = "-120px";
+    header.style.opacity = "0";
+  } else {
+    header.style.top = "0";
+    header.style.opacity = "1";
+  }
+  lastScroll = currentScroll;
+});
+</script>
+
+</body>
+</html>
